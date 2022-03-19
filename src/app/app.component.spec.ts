@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'barcode'`, () => {
+  it(`should have as title 'bars-webapp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('barcode');
+    expect(app.title).toEqual('bars-webapp');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('barcode app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('bars-webapp app is running!');
   });
 });
