@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { BarcodeScannerLivestreamModule } from 'ngx-barcode-scanner';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +17,8 @@ import { HomeComponent } from './components/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BarcodeScannerLivestreamModule
+    BarcodeScannerLivestreamModule,
+    ZXingScannerModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

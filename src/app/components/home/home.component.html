@@ -1,5 +1,7 @@
-<barcode-scanner-livestream  [type]="allowedFormats" (valueChanges)="onValueChanges($event)" (started)="(onStarted)">
-</barcode-scanner-livestream>
+<!-- <barcode-scanner-livestream  [type]="allowedFormats" (valueChanges)="onValueChanges($event)" (started)="(onStarted)">
+</barcode-scanner-livestream> -->
+<zxing-scanner #scanner (scanSuccess)="onValueChanges($event)">
+</zxing-scanner>
 <div *ngFor="let value of barcodeValue;let i=index">
     QR CODE {{i+1}}
 </div>

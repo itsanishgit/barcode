@@ -10,7 +10,7 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild(BarcodeScannerLivestreamComponent)
   barcodeScanner: any;
   barcodeValue: any;
-  allowedFormats = ['aztec', 'code_128', 'code_39', 'code_93', 'codabar', 'data_matrix', 'ean_13', 'ean_8', 'itf', 'pdf417', 'qr_code', 'upc_a', 'upc_e'];
+  allowedFormats = ['code_128', 'code_39', 'code_93', 'codabar', 'ean_8', 'upc_e'];
 
   constructor(private cd: ChangeDetectorRef) {
     this.barcodeValue = [];
@@ -21,16 +21,13 @@ export class HomeComponent implements AfterViewInit {
   }
 
   onValueChanges(result: any) {
+    console.log(result);
     if (this.barcodeValue.length < 2) {
-      this.barcodeValue.push(result.codeResult.code);
+      this.barcodeValue.push(result);
       if (this.barcodeValue.length == 1) {
         alert("Tilt the screen to scan again");
       }
       this.cd.detectChanges();
     }
-  }
-
-  onStarted(started: any) {
-    console.log(started);
   }
 }
