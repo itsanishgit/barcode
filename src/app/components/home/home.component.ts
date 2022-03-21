@@ -10,7 +10,7 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild(BarcodeScannerLivestreamComponent)
   barcodeScanner: any;
   barcodeValue: any;
- 
+
   constructor(private cd: ChangeDetectorRef) {
     this.barcodeValue = [];
   }
@@ -18,11 +18,11 @@ export class HomeComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     let params = { audio: true, video: true };
     navigator.mediaDevices?.getUserMedia(params)
-   .then((stream)=>{
-       stream.getTracks().forEach((track)=>{
-        console.log(track);       
-   });
-})
+      .then((stream) => {
+        stream.getTracks().forEach((track) => {
+          console.log(track);
+        });
+      })
     this.barcodeScanner.start();
   }
 
@@ -32,20 +32,11 @@ export class HomeComponent implements AfterViewInit {
       if (this.barcodeValue.length == 1) {
         alert("Tilt the screen to scan again");
       }
-      this.barcodeScanner.stop();
       this.cd.detectChanges();
     }
   }
 
   onStarted(started: any) {
     console.log(started);
-  }
-
-  @HostListener('window:orientationchange', ['$event'])
-  onOrientationChange(event: any) {
-    console.log('orientationChanged');
-    if (this.barcodeValue.length < 2) {
-      this.barcodeScanner.start();
-    }
   }
 }
