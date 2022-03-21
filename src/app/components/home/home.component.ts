@@ -1,14 +1,11 @@
-import { AfterViewInit, ChangeDetectorRef, Component, HostListener, ViewChild } from '@angular/core';
-import { BarcodeScannerLivestreamComponent } from 'ngx-barcode-scanner';
+import { ChangeDetectorRef, Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterViewInit {
-  @ViewChild(BarcodeScannerLivestreamComponent)
-  barcodeScanner: any;
+export class HomeComponent {
   barcodeValue: any;
   allowedFormats = ['code_128', 'code_39'];
 
@@ -23,9 +20,6 @@ export class HomeComponent implements AfterViewInit {
       })
   }
 
-  ngAfterViewInit(): void {
-    // this.barcodeScanner.start();
-  }
 
   onValueChanges(result: any) {
     if (this.barcodeValue.length < 2) {
