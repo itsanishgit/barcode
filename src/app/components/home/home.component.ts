@@ -17,13 +17,6 @@ export class HomeComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    let params = { audio: true, video: true };
-    navigator.mediaDevices?.getUserMedia(params)
-      .then((stream) => {
-        stream.getTracks().forEach((track) => {
-          console.log(track);
-        });
-      })
     this.barcodeScanner.start();
   }
 
