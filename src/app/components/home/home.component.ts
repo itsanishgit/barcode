@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
+import { BarcodeFormat } from '@zxing/library';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,23 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 })
 export class HomeComponent {
   barcodeValue: any;
-  allowedFormats = ['code_128', 'code_39'];
+  allowedFormats = [ 
+    BarcodeFormat.AZTEC,
+    BarcodeFormat.CODABAR,
+    BarcodeFormat.CODE_128,
+    BarcodeFormat.CODE_39,
+    BarcodeFormat.CODE_93,
+    BarcodeFormat.DATA_MATRIX,
+    BarcodeFormat.EAN_13,
+    BarcodeFormat.EAN_8,
+    BarcodeFormat.ITF,
+    BarcodeFormat.MAXICODE,
+    BarcodeFormat.PDF_417,
+    BarcodeFormat.QR_CODE,
+    BarcodeFormat.UPC_A,
+    BarcodeFormat.UPC_E,
+    BarcodeFormat.UPC_EAN_EXTENSION
+   ];
 
   constructor(private cd: ChangeDetectorRef) {
     this.barcodeValue = [];

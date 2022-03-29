@@ -1,4 +1,4 @@
-<zxing-scanner #scanner (scanSuccess)="onValueChanges($event)">
+<zxing-scanner #scanner [formats]="allowedFormats" (scanSuccess)="onValueChanges($event)">
 </zxing-scanner>
 <div *ngFor="let value of barcodeValue;let i=index">
     QR CODE {{i+1}}
